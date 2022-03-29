@@ -1,4 +1,5 @@
 class UsersLocation < ApplicationRecord
   belongs_to :user
-  belongs_to :location
+  belongs_to :location, dependent: :destroy
+  ### should add inclusion of wished and visited to be only true or false ###
 end
