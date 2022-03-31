@@ -1,1 +1,7 @@
 <h1>Dashboard from <%= @user.first_name %></h1>
+<h2>My locations</h2>
+<ul>
+  <% @locations.each do |location| %>
+    <li><%= "#{location.latitude} | #{location.latitude}" %></li>
+  <% end %>
+</ul>

@@ -7,5 +7,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
+    @locations = current_user.locations
   end
 end
