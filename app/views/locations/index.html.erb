@@ -1,0 +1,6 @@
+<h1>Locations of <%= @user.first_name %></h1>
+<ul>
+  <% @locations.each do |location| %>
+    <li><%= "#{location.latitude} | #{location.latitude}" %></li>
+  <% end %>
+</ul>
