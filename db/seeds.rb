@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+
 puts "Destroying all users and locations..."
 UsersLocation.destroy_all
 Location.destroy_all
@@ -17,6 +19,12 @@ user = User.create(
   email: "kang@hsieh.com",
   password: "123456"
 )
+user.photo.attach(
+  io: File.open(Rails.root.join('app', 'assets', 'images', 'kang.png')),
+  filename: 'kang.png',
+  content_type: 'image/png'
+)
+user.save
 
 puts "Creating locations..."
 location = Location.create(

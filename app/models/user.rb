@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, uniqueness: true
 
+  has_one_attached :photo
   has_many :users_locations, dependent: :destroy
   has_many :locations, through: :users_locations
   #### destroy location when user is destroyed? ####
