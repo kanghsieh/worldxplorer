@@ -17,6 +17,7 @@ class PagesController < ApplicationController
         info_window: render_to_string(
           partial: "info_window",
           locals: { location: location }
+          # image_url: helpers.asset_url("kang.png")
         )
       }
     end
