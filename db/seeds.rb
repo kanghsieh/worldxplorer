@@ -28,8 +28,7 @@ user.save
 
 puts "Creating locations..."
 location = Location.create(
-  latitude: 34.1245,
-  longitude: 1.234
+  address: "Montgolfier-Allee 17, 60486 Frankfurt am Main"
 )
 
 puts "Creating references..."
