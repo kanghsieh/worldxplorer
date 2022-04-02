@@ -8,5 +8,13 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @locations = current_user.locations
+
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @locations.geocoded.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude
+      }
+    end
   end
 end
