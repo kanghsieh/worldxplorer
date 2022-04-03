@@ -7,6 +7,20 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.mapboxgl-ctrl-geocoder {
+  max-width: none;
+  width: 100%;
+  border: 1px solid lightgrey;
+  box-shadow: none;
+
+  .mapboxgl-ctrl-geocoder--input {
+    max-width: none;
+    width: 100%;
+    border: 1px solid lightgrey;
+    box-shadow: none;
+  }
+}
+
 .marker {
   background-image: url('world.svg');
   background-size: contain;
