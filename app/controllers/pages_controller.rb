@@ -8,6 +8,8 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @locations = current_user.locations
+    @users_locations_visited = UsersLocation.where(user: @user).visited.includes(:location)
+    @users_locations_wished = UsersLocation.where(user: @user).wished.includes(:location)
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @locations.geocoded.map do |location|

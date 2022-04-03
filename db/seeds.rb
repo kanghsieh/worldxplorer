@@ -26,17 +26,39 @@ user.photo.attach(
 )
 user.save
 
-puts "Creating locations..."
-location = Location.create(
-  address: "Montgolfier-Allee 17, 60486 Frankfurt am Main"
-)
+puts "Creating locations and references..."
 
-puts "Creating references..."
-UsersLocation.create(
-  user: user,
-  location: location,
-  visited: false,
-  wished: true
-)
+addresses = [
+  "Montgolfier-Allee 17, 60486 Frankfurt am Main",
+  "Birkenweg 8, 53343 Wachtberg",
+  "Clayallee 44, Berlin",
+  "Rückertstrasse 1, Berlin",
+  "Turmstrasse 16, Aachen",
+  "Hermesweg 5, Hamburg"
+]
+
+addresses.each do |address|
+  location = Location.create(
+    address: address
+  )
+
+  status = ["visited", "wished"].sample
+
+  if status == "visited"
+    UsersLocation.create(
+      user: user,
+      location: location,
+      visited: true,
+      wished: false
+    )
+  else
+    UsersLocation.create(
+      user: user,
+      location: location,
+      visited: false,
+      wished: true
+    )
+  end
+end
 
 puts "Seed finished."
