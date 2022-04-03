@@ -1,11 +1,27 @@
 <h1>Dashboard from <%= @user.first_name %></h1>
 <h2>My locations</h2>
-<ul>
-  <% @locations.each do |location| %>
-    <li><%= "#{location.latitude} | #{location.latitude}" %></li>
-  <% end %>
-</ul>
-<div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<div class="container">
+  <div style="width: 100%; height: 600px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div class="container-locations">
+    <div class="card-locations-visited">
+      <%= link_to "Add location", new_user_location_path(@user) %>
+      <ul>
+        <% @locations.each do |location| %>
+          <li><%= "#{location.latitude} | #{location.latitude}" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="card-locations-wished">
+      <ul>
+        <% @locations.each do |location| %>
+          <li><%= "#{location.latitude} | #{location.latitude}" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
