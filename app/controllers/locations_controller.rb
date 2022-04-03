@@ -1,7 +1,8 @@
 class LocationsController < ApplicationController
   def index
     @user = current_user
-    @locations = current_user.locations
+    @locations_visited = UsersLocation.where(user: @user).visited
+    @locations_wished = UsersLocation.where(user: @user).wished
   end
 
   def new

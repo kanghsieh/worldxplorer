@@ -10,16 +10,18 @@
   <div class="container-locations">
     <div class="card-locations-visited">
       <%= link_to "Add location", new_user_location_path(@user) %>
+      <h3>Visited</h3>
       <ul>
-        <% @locations.each do |location| %>
-          <li><%= "#{location.latitude} | #{location.latitude}" %></li>
+        <% @users_locations_visited.each do |users_location| %>
+          <li><%= "#{users_location.location.address}" %></li>
         <% end %>
       </ul>
     </div>
     <div class="card-locations-wished">
+      <h3>Want to go</h3>
       <ul>
-        <% @locations.each do |location| %>
-          <li><%= "#{location.latitude} | #{location.latitude}" %></li>
+        <% @users_locations_wished.each do |users_location| %>
+          <li><%= "#{users_location.location.address}" %></li>
         <% end %>
       </ul>
     </div>
