@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get "/dashboard", to: "pages#dashboard", as: :dashboard
   resources :users, only: %i[show edit update] do
-    resources :locations, only: %i[index new create]
+    resources :locations, only: %i[index new create edit update]
   end
 end

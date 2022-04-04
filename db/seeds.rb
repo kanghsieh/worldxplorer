@@ -39,12 +39,11 @@ addresses = [
 
 addresses.each do |address|
   location = Location.create(
-    address: address
+    address: address,
+    status: ["visited", "wished"].sample
   )
 
-  status = ["visited", "wished"].sample
-
-  if status == "visited"
+  if location.status == "visited"
     UsersLocation.create(
       user: user,
       location: location,
