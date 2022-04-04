@@ -7,9 +7,9 @@
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <%= link_to "Add new location", new_user_location_path(@user), class: "btn btn-primary" %>
   <div class="container-locations">
-    <%= link_to "Add new location", new_user_location_path(@user) %>
-    <div class="card-locations-visited">
+    <div class="card-locations">
       <h3>Visited</h3>
       <ul>
         <% @users_locations_visited.each do |users_location| %>
@@ -17,7 +17,7 @@
         <% end %>
       </ul>
     </div>
-    <div class="card-locations-wished">
+    <div class="card-locations">
       <h3>Want to go</h3>
       <ul>
         <% @users_locations_wished.each do |users_location| %>
