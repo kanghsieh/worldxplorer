@@ -1,29 +1,28 @@
-<h1>Dashboard from <%= @user.first_name %></h1>
-<h2>My locations</h2>
-
 <div class="container">
   <div style="width: 100%; height: 600px;"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <div class="d-grid gap-2">
+    <%= link_to "Add new location", new_user_location_path(@user), class: "btn btn-outline-dark btn-lg m-2" %>
+  </div>
   <div class="container-locations">
-    <%= link_to "Add new location", new_user_location_path(@user) %>
-    <div class="card-locations-visited">
+    <div class="card-locations">
       <h3>Visited</h3>
-      <ul>
+      <ul class="list-group">
         <% @users_locations_visited.each do |users_location| %>
-          <li><%= "#{users_location.location.address}" %></li>
+          <li class="list-group-item"><%= "#{users_location.location.address}" %></li>
         <% end %>
       </ul>
     </div>
-    <div class="card-locations-wished">
+    <div class="card-locations">
       <h3>Want to go</h3>
-      <ul>
+      <ul class="list-group">
         <% @users_locations_wished.each do |users_location| %>
-          <li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
             <%= "#{users_location.location.address}" %>
-            <%= link_to "Mark visisted", user_location_path(@user, users_location.location), method: :put %>
+            <%= link_to "visited", user_location_path(@user, users_location.location), method: :put, class: "btn btn-dark btn-sm" %>
           </li>
         <% end %>
       </ul>
