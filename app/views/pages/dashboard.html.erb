@@ -21,7 +21,10 @@
       <h3>Want to go</h3>
       <ul>
         <% @users_locations_wished.each do |users_location| %>
-          <li><%= "#{users_location.location.address}" %></li>
+          <li>
+            <%= "#{users_location.location.address}" %>
+            <%= link_to "Mark visisted", user_location_path(@user, users_location.location), method: :put %>
+          </li>
         <% end %>
       </ul>
     </div>
