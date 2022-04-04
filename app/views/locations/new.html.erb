@@ -8,6 +8,7 @@
                                   geocoder_api_key_value: ENV['MAPBOX_API_KEY']
                                   }
                               } %>
+    <%= l.collection_radio_buttons :status, [["visisted", "visited"], ["wished", "wished"]], :first, :last %>
     <%= l.button :submit, class: "btn btn-primary" %>
   <% end %>
 </div>
